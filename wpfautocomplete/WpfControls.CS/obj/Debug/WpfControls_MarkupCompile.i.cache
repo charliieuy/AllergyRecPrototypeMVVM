@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\cau9006\Documents\Visual Studio 2015\Projects\wpfautocomplete\WpfControls.CS\obj\Debug\
+C:\Users\cau9006\Source\Repos\AllergyRecPrototypeMVVM\wpfautocomplete\WpfControls.CS\obj\Debug\
 WpfControls
 none
 false
@@ -16,5 +16,5 @@ DEBUG;TRACE
 121961529087
 Editors\Themes\Generic.xaml;Themes\Generic.xaml;
 
-False
+True
 

@@ -78,7 +78,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AutoComplete\SuggestionProvider.cs" />
     <Compile Include="Data\DataService.cs" />
     <Compile Include="Data\DesignDataService.cs" />
     <Compile Include="Data\IDataService.cs" />

@@ -35,3 +35,6 @@ c:\users\cau9006\documents\visual studio 2015\Projects\AllergyRecPrototype2\Alle
 c:\users\cau9006\documents\visual studio 2015\Projects\AllergyRecPrototype2\AllergyRecPrototype2\bin\Debug\WpfControls.pdb
 c:\users\cau9006\documents\visual studio 2015\Projects\AllergyRecPrototype2\AllergyRecPrototype2\bin\Debug\MultiSelectComboBox.dll
 c:\users\cau9006\documents\visual studio 2015\Projects\AllergyRecPrototype2\AllergyRecPrototype2\bin\Debug\MultiSelectComboBox.pdb
+C:\Users\cau9006\Source\Repos\AllergyRecPrototypeMVVM\AllergyRecPrototype2\AllergyRecPrototype2\bin\Debug\AllergyRecPrototype2.exe.config
+C:\Users\cau9006\Source\Repos\AllergyRecPrototypeMVVM\AllergyRecPrototype2\AllergyRecPrototype2\obj\Debug\AllergyRecPrototype2.exe
+C:\Users\cau9006\Source\Repos\AllergyRecPrototypeMVVM\AllergyRecPrototype2\AllergyRecPrototype2\obj\Debug\AllergyRecPrototype2.pdb
