@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AllergyRecPrototype2.Theme">
+    <!--Allergen AutoComplete Item Template-->
+    <DataTemplate x:Key="allergenTemplate">
+        <Border Padding="2">
+            <TextBlock Text="{Binding Path=Name}" FontFamily="Arial" FontSize="12" VerticalAlignment="Center"/>
+        </Border>
+    </DataTemplate>
+</ResourceDictionary>

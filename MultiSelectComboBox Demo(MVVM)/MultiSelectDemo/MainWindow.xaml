@@ -1,0 +1,22 @@
+﻿<Window x:Class="MultiSelectDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ViewModel="clr-namespace:MultiSelectDemo"
+        xmlns:control="clr-namespace:MultiSelectComboBox;assembly=MultiSelectComboBox"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ViewModel:ViewModel x:Key="ViewModel"/>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <control:MultiSelectComboBox 
+                Width="100" Height="30" 
+                ItemsSource="{Binding Items}" 
+                SelectedItems="{Binding SelectedItems, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                x:Name="MC" 
+                ToolTip="{Binding Path=Text, RelativeSource={RelativeSource Self}}"/>
+            <Button Name="button" Click="button_Click" Height="30" Width="100"/>
+            
+        </StackPanel>
+    </Grid>
+</Window>
