@@ -5,42 +5,103 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AllergyRecPrototype2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800"
+        Title="MainWindow" Height="768" Width="1024"
         WindowStartupLocation="CenterScreen"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         xmlns:wpf="http://wpfcontrols.com/"
         xmlns:custom="clr-namespace:MultiSelectComboBox;assembly=MultiSelectComboBox">
     <DockPanel LastChildFill="True">
+        <!--Patient Info Grid-->
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--Row 0-->
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" x:Name="patientName" Text="Last Name, First Name" Style="{StaticResource ResourceKey=PatientNameLabel}"/>
+
+            <!--Row 1-->
+            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock x:Name="dobLabel" Text="DOB:"/>
+                <TextBlock x:Name="dobValue" Text="03/28/1985" />
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                <TextBlock x:Name="mrnLabel" Text="Patient ID:" />
+                <TextBlock x:Name="mrnValueLabel" Text="7005290" />
+            </StackPanel>
+
+            <!--Row 2-->
+            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                <TextBlock x:Name="visitLabel" Text="Visit ID:" />
+                <TextBlock x:Name="visitValueLabel" Text="0011234878" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock x:Name="ageLabel" Text="Age: "/>
+                <TextBlock x:Name="ageValueLabel" Text="30" />
+            </StackPanel>
+
+            <!--Row 3-->
+            <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock x:Name="gende4rLabel" Text="Gender:" />
+                <TextBlock x:Name="genderValue" Text="Male"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                <TextBlock x:Name="locationLabel" Text="Location ID:" />
+                <TextBlock x:Name="locationValueLabel" Text="CH 3 Tower CT-MRAC" />
+            </StackPanel>
+        </Grid>
+        
+        <!--Reconcile Allergies DataGrid-->
         <DataGrid DockPanel.Dock="Top" ItemsSource="{Binding Allergies}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Category" Width ="75" Binding="{Binding Category}" />
                 <DataGridTextColumn Header="Type" Width ="50" Binding="{Binding Type}" />
                 <DataGridTextColumn Header="Campus" Width ="75" Binding="{Binding Campus}"/>
+                <DataGridTextColumn Header="Entered" Width ="75" Binding="{Binding EnteredOn}" />
                 <DataGridTextColumn Header="Allergen" Width ="*" Binding="{Binding Allergen}"/>
                 <DataGridTextColumn Header="Reactions" Width ="*" Binding="{Binding Reactions}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid DockPanel.Dock="Top" ItemsSource="{Binding Allergies}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Category" Width ="75" Binding="{Binding Category}" />
+                <DataGridTextColumn Header="Type" Width ="50" Binding="{Binding Type}" />
+                <DataGridTextColumn Header="Campus" Width ="75" Binding="{Binding Campus}"/>
                 <DataGridTextColumn Header="Entered" Width ="75" Binding="{Binding EnteredOn}" />
+                <DataGridTextColumn Header="Allergen" Width ="*" Binding="{Binding Allergen}"/>
+                <DataGridTextColumn Header="Reactions" Width ="*" Binding="{Binding Reactions}"/>
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.Header>
-                        <Label Content="Allergen"/>
+                        <TextBlock Text="Allergen"/>
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel>
                                 <wpf:AutoCompleteTextBox 
-                                                    VerticalAlignment="Top"
-                                                    Height="30"
-                                                    Grid.Column="1"
-                                                    DisplayMember="Name"
-                                                    Watermark="Search Allergen"
-                                                    IconPlacement="Left"
-                                                    IconVisibility="Hidden"
-                                                    ItemTemplate="{StaticResource allergenTemplate}"
-                                                    Provider="{Binding Main, Source={StaticResource Locator}}"
-                                                    SelectedItem="{Binding SelectedAllergen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    VerticalAlignment="Top"
+                                    Height="30"
+                                    Grid.Column="1"
+                                    DisplayMember="Name"
+                                    Watermark="Search Allergen"
+                                    IconPlacement="Left"
+                                    IconVisibility="Hidden"
+                                    ItemTemplate="{StaticResource allergenTemplate}"
+                                    Provider="{Binding Main, Source={StaticResource Locator}}"
+                                    SelectedItem="{Binding SelectedAllergen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                     <wpf:AutoCompleteTextBox.LoadingContent>
-                                        <TextBlock Text="Loading..."
-                                                            Margin="5"
-                                                            FontSize="14" />
+                                        <TextBlock Text="Loading..." Margin="5" FontSize="14" />
                                     </wpf:AutoCompleteTextBox.LoadingContent>
                                 </wpf:AutoCompleteTextBox>
                             </StackPanel>
@@ -52,8 +113,7 @@
                         <DataTemplate>
                             <custom:MultiSelectComboBox 
                                 ItemsSource="{Binding Main.ReactionsDictionary, Source={StaticResource Locator}}"
-                                SelectedItems="{Binding SelectedReactions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                />
+                                SelectedItems="{Binding SelectedReactions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

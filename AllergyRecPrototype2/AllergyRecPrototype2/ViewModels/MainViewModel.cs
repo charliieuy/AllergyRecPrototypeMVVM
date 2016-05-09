@@ -43,14 +43,6 @@ namespace AllergyRecPrototype2.ViewModels
             get { return _reactions; }
             set { Set(() => Reactions, ref _reactions, value); }
         }
-
-        private ObservableCollection<Allergen> _allergens;
-        public ObservableCollection<Allergen> Allergens
-        {
-            get { return _allergens; }
-            set { Set(() => Allergens, ref _allergens, value); }
-        }
-
         public ObservableDictionary<string, object> ReactionsDictionary
         {
             get
@@ -61,6 +53,14 @@ namespace AllergyRecPrototype2.ViewModels
                 return reactions;
             }
         }
+
+        private ObservableCollection<Allergen> _allergens;
+        public ObservableCollection<Allergen> Allergens
+        {
+            get { return _allergens; }
+            set { Set(() => Allergens, ref _allergens, value); }
+        }
+
         #endregion
 
         #region Commands
